@@ -23,6 +23,7 @@ from aiohttp import web
 from utile import unpack_id, get_file_name, get_requester_ip
 #from .config import request_limit
 #from .telegram import client, transfer
+import paralleltransfer 
 from userbot import Userbot as client
 transfer = ParallelTransferrer(client)
 
