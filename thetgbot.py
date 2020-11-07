@@ -22,7 +22,7 @@ from web_routes import routes
 
 host="localhost"
 port=int( os.environ.get("PORT", "8080"))
-public_url="https://"+os.environ.get("TG_APP_NAME",host+":"+str(port))+".herokuapp.com"
+public_url=r"https://{ os.environ.get("TG_APP_NAME","heroku") }.herokuapp.com"
 
 server = web.Application()
 server.add_routes(routes)
