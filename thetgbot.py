@@ -20,6 +20,9 @@ from telethon import functions
 from .web_routes import routes
 #from .config import host, port, public_url, tg_bot_token
 
+host="localhost"
+port=int( os.environ.get("PORT", "8080"))
+public_url=https://+os.environ.get("TG_APP_NAME",host+":"+port)+".herokuapp.com"
 
 server = web.Application()
 server.add_routes(routes)
