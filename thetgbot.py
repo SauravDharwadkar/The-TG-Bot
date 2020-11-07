@@ -17,7 +17,7 @@ from aiohttp import web
 from telethon import functions
 
 #from .telegram import client, transfer
-from .web_routes import routes
+from web_routes import routes
 #from .config import host, port, public_url, tg_bot_token
 
 host="localhost"
