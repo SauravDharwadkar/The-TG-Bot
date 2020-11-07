@@ -10,8 +10,22 @@ from userbot import Userbot
 from userbot.storage import Storage
 from telethon.sessions import StringSession
 
+import asyncio
+import sys
 
-logging.basicConfig(level=logging.INFO)
+from aiohttp import web
+from telethon import functions
+
+#from .telegram import client, transfer
+from .web_routes import routes
+#from .config import host, port, public_url, tg_bot_token
+
+
+server = web.Application()
+server.add_routes(routes)
+runner = web.AppRunner(server)
+
+loop = asyncio.get_event_loop()
 
 
 ENV = bool(os.environ.get("ENV", False))
@@ -38,7 +52,8 @@ if ENV.SESSION is not None:
         api_id=ENV.APP_ID,
         api_hash=ENV.API_HASH
     )
-    userbot.run_until_disconnected()
+    loop.run_forever()
+    #userbot.run_until_disconnected()
 elif len(sys.argv) == 2:
     session_name = str(sys.argv[1])
     userbot = Userbot(
@@ -49,7 +64,8 @@ elif len(sys.argv) == 2:
         api_id=ENV.APP_ID,
         api_hash=ENV.API_HASH
     )
-    userbot.run_until_disconnected()
+    loop.run_forever()
+    #userbot.run_until_disconnected()
 else:
     logging.error("USAGE EXAMPLE:\n"
                   "python3 -m thetgbot <SESSION_NAME>"
