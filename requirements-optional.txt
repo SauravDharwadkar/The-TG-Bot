@@ -20,3 +20,5 @@ pygit
 coffeehouse
 pymongo
 heroku3
+flask 
+gunicork

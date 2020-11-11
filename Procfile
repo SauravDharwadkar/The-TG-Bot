@@ -1,1 +1,1 @@
-worker: python3 -m client
+web : run.sh
